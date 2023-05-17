@@ -1,20 +1,25 @@
 const quickSort = (array) => {
-    array.length <= 1 ? array : 0  //Caso o array tenha apenas uma casa ou menos ele já está ordenado
+    if(array.length <= 1){
+        return array;
 
-    const array = [];
+    } //Caso o array tenha apenas uma casa ou menos ele já está ordenado
     const pivo = array[Math.floor(array.length / 2)];  // seleciona o array do meio
     const left = [];                                   //elemento à esquerda  
     const right = [];                                   //Elemento à direita
 
     for (let i = 0; i < array.length; i++) {
-
-        array[i] > pivo ? left.push(array[i]) : 0;
-
-        array[i] < pivo ? right.push(array[i]) : 0;
+        if (array[i] > pivo) {
+            left.push(array[i]);
+        } else if (array[i] > pivo) {
+            right.push(array[i]);
+        }
     }
 
-    return [...quickSort(left), pivot, ...quickSort(right)];
+    return [...quickSort(left), pivo, ...quickSort(right)];
 }
 
 
-                                                     /*TESTE APLICAÇÃO*/
+/*TESTE APLICAÇÃO*/
+const array = [5, 8, 2, 1, 6, 3, 9, 4, 7];
+const teste = quickSort(array);
+console.log(teste)
