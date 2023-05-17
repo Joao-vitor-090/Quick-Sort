@@ -5,3 +5,9 @@ const pivo  = array[Math.floor(array.length / 2)];  // seleciona o array do meio
 const left  = [];                                   //elemento à esquerda  
 const right = [];                                   //Elemento à direita
 
+for (let i = 0; i < array.length; i++) {
+    
+    array[i] > pivo ? left.push(array[i]): 0;
+
+    array[i] < pivo ? right.push(array[i]) : 0;
+}
